@@ -11,8 +11,8 @@ if (isset($_POST['usuario']) && !empty($_POST['usuario']) && isset($_POST['senha
     $senha = addslashes($_POST['senha']);
 
     if ($u->login($login, $senha) == true){
-         if (isset($_SESSION['idUser'])){
-             header("location: ../index.php");
+         if (isset($_SESSION['idUser'])) {
+             header("location: ../login/index.php");
          } else {
              header("location: ../login/login.php");
          }

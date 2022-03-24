@@ -8,7 +8,7 @@ $conn = mysqli_connect('localhost:3306','root','','clientes');
 <head>
     <title>Dashboard</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 </head>
 <body>
@@ -21,7 +21,7 @@ $conn = mysqli_connect('localhost:3306','root','','clientes');
             <li><a href="" class="active"><span class="las la-igloo"></span>
                 <span>Dashboard</span></a>
             </li>
-            <li><a href="Cadastro.php"><span class="las la-users"></span>
+            <li><a href="../Cadastro.php"><span class="las la-users"></span>
                 <span>Cadastrar Clientes</span></a>
             </li>
         </ul>
@@ -36,7 +36,7 @@ $conn = mysqli_connect('localhost:3306','root','','clientes');
             Dashboard
         </h2>
         <div class="user-wrapper">
-            <img src="../img/2.jpg" alt="" width="40px" height="30px">
+            <img src="../../img/2.jpg" alt="" width="40px" height="30px">
             <div>
                 <h4>Timm</h4>
                 <small>Super admin</small>
@@ -122,8 +122,9 @@ $conn = mysqli_connect('localhost:3306','root','','clientes');
                                 <tr>
                                     <td><?=$row_alunos['id'];?></td>
                                     <input type="hidden" name="id" value="<?=$row_alunos['id']?>">
-                                    <td><a href="Editar.php?=<?=$row_alunos['id']?>"><?=$row_alunos['name'];?></a></td>
+                                    <td><?=$row_alunos['name'];?></td>
                                     <td><?=$row_alunos['email'];?></td>
+                                    <td><a href="../Editar.php?=<?=$row_alunos['id']?>">Editar</a></td>
                                 </tr>
                                 <?php } ?>
                                 </tbody>
@@ -141,7 +142,7 @@ $conn = mysqli_connect('localhost:3306','root','','clientes');
                     <div class="card-body">
                          <div class="customer">
                              <div>
-                                 <img src="../img/2.jpg" width="40px" alt="" height="40px">
+                                 <img src="../../img/2.jpg" width="40px" alt="" height="40px">
                              </div>
                              <div>
                                  <h4>Tim</h4>
@@ -157,7 +158,7 @@ $conn = mysqli_connect('localhost:3306','root','','clientes');
                     <div class="card-body">
                         <div class="customer">
                             <div class="info">
-                                <img src="../img/2.jpg" width="40px" alt="" height="40px">
+                                <img src="../../img/2.jpg" width="40px" alt="" height="40px">
                             </div>
                             <div>
                                 <h4>Timm</h4>

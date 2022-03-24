@@ -3,9 +3,7 @@ session_start();
 
 $conn = mysqli_connect('localhost:3306','root','','clientes');
 
-$id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
-
-$result_aluno = "SELECT * FROM aluno WHERE id = '{$id}' ";
+$result_aluno = "SELECT * FROM aluno WHERE id = '5' ";
 $resultado_aluno = mysqli_query($conn, $result_aluno);
 $row_aluno = mysqli_fetch_assoc($resultado_aluno);
 
