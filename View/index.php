@@ -24,9 +24,6 @@ $conn = mysqli_connect('localhost:3306','root','','clientes');
             <li><a href="Cadastro.php"><span class="las la-users"></span>
                 <span>Cadastrar Clientes</span></a>
             </li>
-            <li><a href="Editar.php"><span class="las la-user-circle"></span>
-                <span>Editar</span></a>
-            </li>
         </ul>
     </div>
 </div>
@@ -119,7 +116,7 @@ $conn = mysqli_connect('localhost:3306','root','','clientes');
                                 </thead>
                                 <tbody>
                                 <?php
-                                $result_alunos = "SELECT * FROM aluno";
+                                $result_alunos = "SELECT * FROM aluno WHERE id";
                                 $resultado_alunos = mysqli_query($conn, $result_alunos);
                                 while($row_alunos = mysqli_fetch_assoc($resultado_alunos)) {?>
                                 <tr>

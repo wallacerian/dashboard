@@ -3,7 +3,9 @@ session_start();
 
 $conn = mysqli_connect('localhost:3306','root','','clientes');
 
-$result_aluno = "SELECT * FROM aluno WHERE id ='9'";
+$id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+
+$result_aluno = "SELECT * FROM aluno WHERE id = '{$id}' ";
 $resultado_aluno = mysqli_query($conn, $result_aluno);
 $row_aluno = mysqli_fetch_assoc($resultado_aluno);
 
@@ -13,12 +15,6 @@ $row_aluno = mysqli_fetch_assoc($resultado_aluno);
     <title>Editar</title>
 </head>
 <body>
-<?php
-if (isset($_SESSION['msg'])){
-    echo $_SESSION['msg'];
-    unset($_SESSION['msg']);
-}
-?>
 <form action="update.php" method="POST">
     <input type="hidden" name="id" value="<?= $row_aluno['id']; ?>">
 

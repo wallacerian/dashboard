@@ -1,26 +1,25 @@
 <?php
-session_start();
-$conn = mysqli_connect('localhost:3306','root','','usuario');
 
-if (empty($_POST['usuario']) || empty($_POST['senha'])) {
-    header('Location: ../index.php');
-    exit();
-}
+if (isset($_POST['usuario']) && !empty($_POST['usuario']) && isset($_POST['senha']) && !empty(isset($_POST['senha'])))
+{
+    require '../conexao2.php';
+    require 'Usuarioclass.php';
 
-$usuario = mysqli_real_escape_string($conn, $_POST['usuario']);
-$senha = mysqli_real_escape_string($conn, $_POST['senha']);
+    $u = new Usuarioclass();
 
-$query = "select idusuario, usuario from usuario where usuario = '{$usuario}' and senha = md5('{$senha}')";
+    $login = addslashes($_POST['usuario']);
+    $senha = addslashes($_POST['senha']);
 
-$result = mysqli_query($conn, $query);
+    if ($u->login($login, $senha) == true){
+         if (isset($_SESSION['idUser'])){
+             header("location: ../index.php");
+         } else {
+             header("location: ../login/login.php");
+         }
+    }else{
+        header("location: ../login/login.php");
+    }
 
-$row = mysqli_num_rows($result);
-
-if ($row == 1) {
-    $_SESSION['usuario'] = $usuario;
-    header('Location: Painel.php');
-    exit();
 } else {
-    header('Location: ../Login/login.php');
-    exit();
+    header("location: ../login/login.php");
 }
