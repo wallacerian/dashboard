@@ -5,12 +5,6 @@ $email = $_POST['email'];
 $endereco = $_POST['endereco'];
 $contatos = $_POST['contatos'];
 
-/*if ( $name = ' ')
-{
-    echo "Os Campos Estão Vazios";
-    die;
-}*/
-
 $conn = mysqli_connect('localhost:3306','root','','clientes');
 
 if (!$conn) {

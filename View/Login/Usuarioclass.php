@@ -1,7 +1,6 @@
 <?php
 
 require '../conexao2.php';
-require '../conexao.php';
 
 class Usuarioclass
 {
@@ -25,17 +24,5 @@ class Usuarioclass
         }else{
             return false;
         }
-    }
-
-    public function editar($name, $email)
-    {
-        global $sql;
-
-        $pdo = "SELECT * FROM aluno WHERE id = :id ";
-        $pdo = $sql->prepare($pdo);
-        $pdo->bindValue("name", $name);
-        $pdo->execute();
-
-
     }
 }

@@ -124,7 +124,7 @@ $conn = mysqli_connect('localhost:3306','root','','clientes');
                                     <input type="hidden" name="id" value="<?=$row_alunos['id']?>">
                                     <td><?=$row_alunos['name'];?></td>
                                     <td><?=$row_alunos['email'];?></td>
-                                    <td><a href="../Editar.php?=<?=$row_alunos['id']?>">Editar</a></td>
+                                    <td><a href='../Editar.php?id=<?=$row_alunos['id']?>'>Editar</a></td>
                                 </tr>
                                 <?php } ?>
                                 </tbody>
