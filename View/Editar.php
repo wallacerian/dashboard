@@ -1,13 +1,14 @@
 <?php
-session_start();
 
-$conn = mysqli_connect('localhost:3306','root','','clientes');
-
+require 'conexao.php';
 
 $id = $_GET['id'];
-$result_aluno = "SELECT * FROM aluno WHERE id = $id ";
-$resultado_aluno = mysqli_query($conn, $result_aluno);
-$row_aluno = mysqli_fetch_assoc($resultado_aluno);
+
+global $pdo;
+$cmd = $pdo->prepare("SELECT * FROM aluno WHERE id = :id");
+$cmd->bindValue(":id", $id);
+$cmd->execute();
+$row_aluno = $cmd->fetch();
 
 ?>
 <html lang="en">

@@ -2,6 +2,8 @@
 
 $conn = mysqli_connect('localhost:3306','root','','clientes');
 
+session_start();
+
 ?>
 
 <html>

@@ -10,13 +10,13 @@ if (isset($_POST['usuario']) && !empty($_POST['usuario']) && isset($_POST['senha
     $login = addslashes($_POST['usuario']);
     $senha = addslashes($_POST['senha']);
 
-    if ($u->login($login, $senha) == true){
+    if ($u->login($login, $senha) == true) {
          if (isset($_SESSION['idUser'])) {
              header("location: ../login/index.php");
          } else {
              header("location: ../login/login.php");
          }
-    }else{
+    } else {
         header("location: ../login/login.php");
     }
 

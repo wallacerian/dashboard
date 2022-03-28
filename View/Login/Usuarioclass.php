@@ -25,4 +25,15 @@ class Usuarioclass
             return false;
         }
     }
+
+    public function cadastrar($nome, $senha) {
+
+        global $pdo;
+
+        $sql = "INSERT INTO usuario (usuario, senha, data_cadastro) values($nome , $senha)";
+        $sql = $pdo->prepare($sql);
+        $sql->bindValue("name", $nome);
+        $sql->bindValue("name", $nome);
+        $sql->execute();
+    }
 }
