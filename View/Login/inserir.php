@@ -1,19 +1,27 @@
 <?php
 
+require 'UsuarioInsert.php';
+require '../conexao.php';
+
 if ($_POST['name'] == '' || $_POST['email'] == '') {
     echo '<h1>Seu Nome Esta Vazio</h1>';
     die;
 }
 
-$conn = mysqli_connect('localhost:3306','root','','clientes');
+if (isset($_POST['name'],$_POST['email'])) {
+    $Usuario = new UsuarioInsert();
 
-$name = mysqli_real_escape_string($conn, $_POST['name']);
-$email = mysqli_real_escape_string($conn, $_POST['email']);
-$endereco = mysqli_real_escape_string($conn, $_POST['endereco']);
-$contatos = mysqli_real_escape_string($conn, $_POST['contatos']);
+    $name =      $_POST['name'];
+    $email =     $_POST['email'];
+    $endereco =  $_POST['endereco'];
+    $contatos =  $_POST['contatos'];
+
+    $Usuario->InserirAluno($name, $email, $endereco, $contatos);
+    header("Location: index.php");
+}
 
 
-if (!$conn) {
+/*if (!$conn) {
     die('Não foi possível conectar ao Banco de Dados');
 }
 
@@ -27,4 +35,4 @@ if (mysqli_insert_id($conn)){
 } else {
     header("Location: index.php");
       $_SESSION['msg'] = "<p style='color:green;'>Usuario Não Foi Criado</p>";
-}
+}*/
