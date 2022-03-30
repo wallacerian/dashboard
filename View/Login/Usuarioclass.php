@@ -18,7 +18,7 @@ class Usuarioclass
         if($sql->rowCount() > 0) {
            $dado = $sql->fetch();
 
-           $_SESSION['idUser'] =  $dado['idusuario'];
+           $_SESSION['idUser'] =  $dado['id'];
 
            return true;
         }else{

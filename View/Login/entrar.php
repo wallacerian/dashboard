@@ -7,6 +7,8 @@ if (isset($_POST['usuario']) && !empty($_POST['usuario']) && isset($_POST['senha
 
     $u = new Usuarioclass();
 
+    $redirect =  header("location: ../login/login.php");
+
     $login = addslashes($_POST['usuario']);
     $senha = addslashes($_POST['senha']);
 
@@ -14,12 +16,10 @@ if (isset($_POST['usuario']) && !empty($_POST['usuario']) && isset($_POST['senha
          if (isset($_SESSION['idUser'])) {
              header("location: ../login/index.php");
          } else {
-             header("location: ../login/login.php");
+             $redirect;
          }
     } else {
-        header("location: ../login/login.php");
+        $redirect;
     }
 
-} else {
-    header("location: ../login/login.php");
 }

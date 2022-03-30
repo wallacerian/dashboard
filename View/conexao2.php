@@ -3,7 +3,7 @@
 $localhost = "localhost";
 $user = "root";
 $passw = "";
-$banco = "usuario";
+$banco = "clientes";
 
 global $pdo;
 
