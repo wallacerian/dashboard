@@ -2,10 +2,12 @@
 
 $conn = mysqli_connect('localhost:3306','root','','clientes');
 
+require '../conexao.php';
+
 session_start();
 
 ?>
-
+<!DOCTYPE html>
 <html>
 <head>
     <title>Dashboard</title>
@@ -108,7 +110,7 @@ session_start();
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table width="100%">
+                            <table>
                                 <thead>
                                 <tr>
                                     <td>ID</td>

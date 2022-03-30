@@ -11,6 +11,7 @@ $cmd->execute();
 $row_aluno = $cmd->fetch();
 
 ?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Editar</title>

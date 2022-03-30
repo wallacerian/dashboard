@@ -19,8 +19,6 @@ if (isset($_POST['name'],$_POST['email'])) {
     $endereco = $_POST['endereco'];
     $contatos = $_POST['contatos'];
 
-
-
     $UsuarioEdit->update($id, $name, $email, $endereco, $contatos);
     header("Location: Login/index.php");
 }
