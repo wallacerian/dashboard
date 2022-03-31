@@ -1,7 +1,5 @@
 <?php
 
-$conn = mysqli_connect('localhost:3306','root','','clientes');
-
 require '../conexao.php';
 
 session_start();
@@ -52,9 +50,10 @@ session_start();
             <div class="card-single">
                 <div>
                     <h1><?php
-                       $query_aluno = "SELECT COUNT(id) AS name FROM aluno";
-                        $query_alunos = mysqli_query($conn, $query_aluno);
-                        $row_alunos = mysqli_fetch_assoc($query_alunos);
+                       global $pdo;
+                       $cmd = $pdo->prepare("SELECT COUNT(id) AS name FROM aluno");
+                       $cmd->execute();
+                       $row_alunos = $cmd->fetch();
                        echo "Clientes: " . $row_alunos['name'] ?></h1>
                     <span>Clientes</span>
                 </div>
@@ -65,9 +64,9 @@ session_start();
             <div class="card-single">
                 <div>
                     <h1><?php
-                        $query_aluno = "SELECT COUNT(endereco) AS endereco FROM aluno";
-                        $query_alunos = mysqli_query($conn, $query_aluno);
-                        $row_alunos = mysqli_fetch_assoc($query_alunos);
+                        $cmg = $pdo->prepare("SELECT COUNT(endereco) AS endereco FROM aluno");
+                        $cmg->execute();
+                        $row_alunos = $cmg->fetch();
                         echo "Endereços: " . $row_alunos['endereco'] ?></h1>
                     <span>Endereços</span>
                 </div>
@@ -78,9 +77,9 @@ session_start();
             <div class="card-single">
                 <div>
                     <h1><?php
-                        $query_aluno = "SELECT COUNT(contatos) AS contatos FROM aluno";
-                        $query_alunos = mysqli_query($conn, $query_aluno);
-                        $row_alunos = mysqli_fetch_assoc($query_alunos);
+                        $cmc = $pdo->prepare("SELECT COUNT(contatos) AS contatos FROM aluno");
+                        $cmc->execute();
+                        $row_alunos = $cmc->fetch();
                         echo "Contatos: " . $row_alunos['contatos'] ?></h1>
                     <span>Contatos</span>
                 </div>
@@ -120,9 +119,9 @@ session_start();
                                 </thead>
                                 <tbody>
                                 <?php
-                                $result_alunos = "SELECT * FROM aluno WHERE id";
-                                $resultado_alunos = mysqli_query($conn, $result_alunos);
-                                while($row_alunos = mysqli_fetch_assoc($resultado_alunos)) {?>
+                                $cmb = $pdo->prepare("SELECT * FROM aluno WHERE id");
+                                $cmb->execute();
+                                while($row_alunos = $cmb->fetch()) {?>
                                 <tr>
                                     <td><?=$row_alunos['id'];?></td>
                                     <input type="hidden" name="id" value="<?=$row_alunos['id']?>">

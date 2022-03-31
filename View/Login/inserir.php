@@ -19,20 +19,3 @@ if (isset($_POST['name'],$_POST['email'])) {
     $Usuario->InserirAluno($name, $email, $endereco, $contatos);
     header("Location: index.php");
 }
-
-
-/*if (!$conn) {
-    die('Não foi possível conectar ao Banco de Dados');
-}
-
-$result_usuario = "INSERT INTO aluno (name, email, endereco, contatos) VALUES ('$name','$email','$endereco','$contatos')";
-$result_usuario = mysqli_query($conn, $result_usuario);
-
-if (mysqli_insert_id($conn)){
-
-    header("Location: index.php");
-    $_SESSION['msg'] = "<p style='color:green;'>Usuario Criado com sucesso</p>";
-} else {
-    header("Location: index.php");
-      $_SESSION['msg'] = "<p style='color:green;'>Usuario Não Foi Criado</p>";
-}*/
